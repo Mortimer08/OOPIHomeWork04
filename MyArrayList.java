@@ -58,6 +58,15 @@ public class MyArrayList<T> implements Iterator<T>, Iterable<T> {
         return -1;
     }
 
+    public boolean isInArray(T element) {
+        for (int index = 0; index < length; index++) {
+            if (localArray[index].value.equals(element)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void insert(int index, T elem) {
         localList.add(index, elem);
         length++;
@@ -114,14 +123,14 @@ public class MyArrayList<T> implements Iterator<T>, Iterable<T> {
 
     }
 
-    public void deleteElement(T element) {
-        for (int i = 0; i < length; i++) {
-            if (localList.get(i).equals(element)) {
-                localList.remove(i);
-                length--;
-            }
-        }
-    }
+    // public void deleteElement(T element) {
+    // for (int i = 0; i < length; i++) {
+    // if (localList.get(i).equals(element)) {
+    // localList.remove(i);
+    // length--;
+    // }
+    // }
+    // }
 
     public void deleteArrayElements(T element) {
         Element<T>[] reducedArray = new Element[size];
